@@ -147,7 +147,14 @@ q.addEventListener("input", () => {
     } catch { drop.hidden = true; }
   }, 200);
 });
-q.addEventListener("keydown", e => { if (e.key === "Enter" && q.value.trim()) run(q.value.trim()); });
+q.addEventListener("keydown", async e => {
+  if (e.key !== "Enter" || !q.value.trim()) return;
+  const v = q.value.trim();
+  try {
+    const r = await getJSON(`/api/search?q=${encodeURIComponent(v)}`);
+    run(r.length ? r[0].symbol : v);
+  } catch { run(v); }
+});
 drop.addEventListener("click", e => { const b = e.target.closest("button"); if (b) run(b.dataset.s); });
 
 /* ---------- candlestick chart (plain SVG) ---------- */

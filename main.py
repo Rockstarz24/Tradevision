@@ -21,7 +21,7 @@ FALLBACK = {
     "TATAMOTORS": "Tata Motors", "TATASTEEL": "Tata Steel", "ITC": "ITC", "LT": "Larsen & Toubro",
     "BAJFINANCE": "Bajaj Finance", "ADANIENT": "Adani Enterprises", "WIPRO": "Wipro",
     "STYLEBAAZA": "Baazar Style Retail", "BSE": "BSE Ltd", "ZOMATO": "Zomato",
-    "HAL": "Hindustan Aeronautics", "IRFC": "Indian Railway Finance Corporation",
+    "HAL": "Hindustan Aeronautics", "KALYANKJIL": "Kalyan Jewellers India", "IRFC": "Indian Railway Finance Corporation",
 }
 
 
@@ -94,7 +94,18 @@ def search(q: str = Query("", max_length=40)):
         else: continue
         ranked.append((r, sym, name))
     ranked.sort()
-    return [{"symbol": s, "name": n} for _, s, n in ranked[:8]]
+    res = [{"symbol": s, "name": n} for _, s, n in ranked[:8]]
+    if len(res) < 5:  # local list is short: ask Yahoo's search for NSE/BSE matches
+        try:
+            have = {r["symbol"] for r in res}
+            for it in yf.Search(q, max_results=10, news_count=0).quotes:
+                sym = str(it.get("symbol", ""))
+                if sym.endswith((".NS", ".BO")) and sym[:-3] not in have:
+                    have.add(sym[:-3])
+                    res.append({"symbol": sym[:-3], "name": it.get("longname") or it.get("shortname") or ""})
+        except Exception:
+            pass
+    return res[:8]
 
 
 @app.get("/api/analyze")
