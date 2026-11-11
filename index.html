@@ -15,7 +15,7 @@ h1{margin:0;font-size:24px;letter-spacing:-.02em}
 header small{color:var(--mute);letter-spacing:.14em;font-size:12px}
 .hint{color:var(--mute);margin:20px 0 12px}
 .search{position:relative}
-input{width:100%;background:var(--panel);border:2px solid var(--gold);border-radius:16px;color:var(--text);font:600 20px inherit;padding:16px 18px;outline:none}
+input[type=search],input[type=number]{width:100%;background:var(--panel);border:2px solid var(--gold);border-radius:16px;color:var(--text);font:600 20px system-ui,sans-serif;padding:14px 18px;outline:none}
 input:focus-visible{box-shadow:0 0 0 3px rgba(232,185,35,.25)}
 .drop{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:8px;overflow:hidden}
 .drop button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);color:var(--text);padding:12px 16px;font:inherit;cursor:pointer}
@@ -23,31 +23,58 @@ input:focus-visible{box-shadow:0 0 0 3px rgba(232,185,35,.25)}
 .drop button:hover,.drop button:focus-visible{background:#1d1d21;outline:none}
 .drop b{display:block}.drop span{color:var(--mute);font-size:14px}
 .drop .empty{padding:14px 16px;color:var(--mute);font-style:italic}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chips button{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:6px 14px;font:600 14px system-ui,sans-serif;cursor:pointer}
+.chips button:hover,.chips button:focus-visible{border-color:var(--gold);outline:none}
 .note{display:flex;gap:10px;margin:16px 0;padding:14px;border:1px solid var(--line);border-radius:14px;color:var(--mute);font-size:14px}
-.hero{border-radius:24px;padding:28px 22px;border:1px solid var(--line);margin-top:8px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:8px}
+.top h2{margin:0;font-size:22px}
+.top .sub{color:var(--mute);font-size:14px}
+.star{background:var(--panel);border:1px solid var(--line);color:var(--mute);border-radius:12px;padding:8px 12px;font:600 14px system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+.star[aria-pressed=true]{color:var(--gold);border-color:var(--gold)}
+.price{display:flex;align-items:baseline;gap:10px;margin:6px 0 4px}
+.price strong{font-size:30px}.up{color:var(--bull)}.dn{color:var(--bear)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0;background:var(--panel);padding:5px;border-radius:14px;border:1px solid var(--line)}
+.tabs button{background:none;border:0;color:var(--mute);padding:10px 4px;border-radius:10px;font:700 14px system-ui,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--gold);color:#111}
+.hero{border-radius:24px;padding:24px 20px;border:1px solid var(--line);margin-top:8px}
 .hero.bull{background:linear-gradient(160deg,#0d2a18,#0b0b0c 70%);border-color:#14532d}
 .hero.bear{background:linear-gradient(160deg,#2c1212,#0b0b0c 70%);border-color:#7f1d1d}
 .hero.neu{background:linear-gradient(160deg,#1a1d24,#0b0b0c 70%)}
-.verdict{font-size:clamp(40px,13vw,60px);font-weight:900;line-height:.95;letter-spacing:-.04em;margin:0}
+.verdict{font-size:clamp(36px,11vw,52px);font-weight:900;line-height:.98;letter-spacing:-.04em;margin:0}
 .bull .verdict{color:var(--bull)}.bear .verdict{color:var(--bear)}.neu .verdict{color:var(--neu)}
-.chip{display:inline-block;margin-top:16px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.08);font-weight:700;letter-spacing:.05em}
-.trend{color:var(--mute);margin:10px 0 0;letter-spacing:.08em;font-size:14px}
-.price{display:flex;align-items:baseline;gap:10px;margin-top:20px}
-.price strong{font-size:30px}.up{color:var(--bull)}.dn{color:var(--bear)}
-.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.chip{display:inline-block;margin-top:14px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.08);font-weight:700;letter-spacing:.05em}
+.trend{color:var(--mute);margin:10px 0 0;letter-spacing:.06em;font-size:14px}
+.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 .count{border-radius:12px;padding:10px;text-align:center;font-weight:700;border:1px solid}
 .count.bullish{color:var(--bull);border-color:#14532d;background:#0d2a1855}
 .count.neutral{color:var(--neu);border-color:#334155;background:#1e293b55}
 .count.bearish{color:var(--bear);border-color:#7f1d1d;background:#2c121255}
 .count small{display:block;font-weight:500;opacity:.8}
-svg.spark{width:100%;height:90px;margin-top:20px;display:block}
-h2{font-size:18px;margin:28px 0 10px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+ul.why{margin:12px 0 0;padding-left:18px;color:var(--mute);font-size:14px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px;margin-top:14px}
+.card h3{margin:0 0 10px;font-size:16px}
+.chartbox{margin-top:14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:8px}
+svg.chart{width:100%;height:auto;display:block}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mute);padding:4px 6px 2px}
+h2.sec{font-size:18px;margin:26px 0 8px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
 .row .v{color:var(--mute);font-variant-numeric:tabular-nums}
-.tag{font-weight:700;min-width:76px;text-align:right}
-.tag.bullish{color:var(--bull)}.tag.bearish{color:var(--bear)}.tag.neutral{color:var(--neu)}
+.tag{font-weight:700;min-width:70px;text-align:right}
+.tag.bullish,.tag.pass{color:var(--bull)}.tag.bearish,.tag.fail{color:var(--bear)}.tag.neutral,.tag.na{color:var(--neu)}
+.plan{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.plan div{background:#0f0f11;border:1px solid var(--line);border-radius:12px;padding:10px}
+.plan small{display:block;color:var(--mute);font-size:12px}
+.plan b{font-size:18px;font-variant-numeric:tabular-nums}
+.in{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.in label{font-size:12px;color:var(--mute)}
+.in input{font-size:16px;padding:10px 12px;border-width:1px;border-radius:12px}
+.big{font-size:22px;font-weight:800}
+.mute{color:var(--mute);font-size:14px}
 .err{border:1px solid #7f1d1d;background:#2c1212;color:#fecaca;border-radius:14px;padding:14px;margin-top:16px}
 .load{color:var(--mute);margin-top:20px}
+.btn{background:var(--panel);border:1px solid var(--gold);color:var(--gold);border-radius:12px;padding:8px 14px;font:700 14px system-ui,sans-serif;cursor:pointer;margin-top:10px}
 .foot{color:var(--mute);font-size:13px;margin-top:28px}
 </style>
 </head>
@@ -63,21 +90,47 @@ h2{font-size:18px;margin:28px 0 10px}
     <input id="q" type="search" placeholder="Type a symbol or company" autocomplete="off" autocapitalize="characters" aria-label="Search stocks">
     <div id="drop" class="drop" hidden></div>
   </div>
+  <div id="watch" class="chips" aria-label="Watchlist"></div>
 
   <div class="note"><span aria-hidden="true">ⓘ</span><span>Auto-generated technical analysis for educational purposes only. Not investment advice. Consult a SEBI-registered advisor before trading. Past performance does not guarantee future results.</span></div>
 
   <div id="out" aria-live="polite"></div>
-  <p class="foot">Data: Yahoo Finance (delayed, unofficial). Daily candles; cached for 5 minutes.</p>
+  <p class="foot">Data: Yahoo Finance (delayed, unofficial). Cached for a few minutes. Trade plans use ATR and are mechanical suggestions, not predictions.</p>
 </div>
 
 <script>
 const API = location.protocol === "file:" ? "http://localhost:8000" : "";
 const $ = id => document.getElementById(id);
 const q = $("q"), drop = $("drop"), out = $("out");
-let timer, seq = 0;
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmt = n => n == null ? "–" : Number(n).toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+let timer, seq = 0, cur = null;
 
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => n == null ? "–" : Number(n).toLocaleString("en-IN", {minimumFractionDigits:2, maximumFractionDigits:2});
+const pct = n => n == null ? "–" : (n >= 0 ? "+" : "") + Number(n).toFixed(1) + "%";
+const short = v => v >= 1000 ? Math.round(v).toLocaleString("en-IN") : v.toFixed(v >= 100 ? 1 : 2);
+const vcls = o => o.includes("BULL") ? "bull" : o.includes("BEAR") ? "bear" : "neu";
+const acls = a => /BUY|ACCUM/.test(a) ? "bull" : /AVOID/.test(a) ? "bear" : "neu";
+const cap = s => s[0].toUpperCase() + s.slice(1);
+
+async function getJSON(u) {
+  const r = await fetch(API + u);
+  let d = {}; try { d = await r.json(); } catch {}
+  if (!r.ok) throw new Error(d.detail || "Something went wrong.");
+  return d;
+}
+
+/* ---------- watchlist (saved in this browser) ---------- */
+const W = {
+  get() { try { return JSON.parse(localStorage.getItem("tv_watch") || "[]"); } catch { return []; } },
+  set(a) { try { localStorage.setItem("tv_watch", JSON.stringify(a)); } catch {} }
+};
+function renderWatch() {
+  const w = W.get();
+  $("watch").innerHTML = w.map(s => `<button data-w="${esc(s)}">${esc(s)}</button>`).join("");
+}
+$("watch").addEventListener("click", e => { const b = e.target.closest("button"); if (b) run(b.dataset.w); });
+
+/* ---------- search ---------- */
 q.addEventListener("input", () => {
   clearTimeout(timer);
   const v = q.value.trim();
@@ -85,7 +138,7 @@ q.addEventListener("input", () => {
   timer = setTimeout(async () => {
     const my = ++seq;
     try {
-      const r = await (await fetch(`${API}/api/search?q=${encodeURIComponent(v)}`)).json();
+      const r = await getJSON(`/api/search?q=${encodeURIComponent(v)}`);
       if (my !== seq) return;
       drop.hidden = false;
       drop.innerHTML = r.length
@@ -97,46 +150,213 @@ q.addEventListener("input", () => {
 q.addEventListener("keydown", e => { if (e.key === "Enter" && q.value.trim()) run(q.value.trim()); });
 drop.addEventListener("click", e => { const b = e.target.closest("button"); if (b) run(b.dataset.s); });
 
-function spark(c) {
-  const v = c.filter(x => x != null), min = Math.min(...v), max = Math.max(...v);
+/* ---------- candlestick chart (plain SVG) ---------- */
+function chart(ch, levels = []) {
+  const n = ch.c.length, W = 360, H = 240, R = 50, P = 6, B = 16;
+  const vals = [...ch.h, ...ch.l, ...levels.map(l => l.y)];
+  Object.values(ch.lines || {}).forEach(a => a.forEach(v => v != null && vals.push(v)));
+  const min = Math.min(...vals), max = Math.max(...vals), span = max - min || 1;
+  const step = (W - R - P) / n, X = i => P + (i + .5) * step, Y = v => P + (max - v) / span * (H - P - B);
+  const bw = Math.max(1.5, step * .62);
+  let s = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Price chart">`;
+  for (let k = 0; k < 4; k++) { const y = P + k * (H - P - B) / 3; s += `<line x1="${P}" x2="${W - R}" y1="${y}" y2="${y}" stroke="#26262a" stroke-width=".6"/>`; }
+  const colors = {"SMA 20": "#e8b923", "SMA 50": "#60a5fa", "VWAP": "#e8b923", "Supertrend": "#a78bfa"};
+  for (const [name, arr] of Object.entries(ch.lines || {})) {
+    const pts = arr.map((v, i) => v == null ? null : `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).filter(Boolean).join(" ");
+    if (pts) s += `<polyline fill="none" stroke="${colors[name] || "#888"}" stroke-width="1.2" opacity=".9" points="${pts}"/>`;
+  }
+  for (let i = 0; i < n; i++) {
+    const up = ch.c[i] >= ch.o[i], col = up ? "#22c55e" : "#f87171";
+    const yo = Y(ch.o[i]), yc = Y(ch.c[i]);
+    s += `<line x1="${X(i)}" x2="${X(i)}" y1="${Y(ch.h[i])}" y2="${Y(ch.l[i])}" stroke="${col}" stroke-width="1"/>`;
+    s += `<rect x="${X(i) - bw / 2}" y="${Math.min(yo, yc)}" width="${bw}" height="${Math.max(1, Math.abs(yo - yc))}" fill="${col}"/>`;
+  }
+  levels.forEach(l => {
+    const y = Y(l.y);
+    s += `<line x1="${P}" x2="${W - R}" y1="${y}" y2="${y}" stroke="${l.c}" stroke-width="1" stroke-dasharray="4 3"/>`;
+    s += `<text x="${W - R + 3}" y="${y + 3}" font-size="9" fill="${l.c}">${l.n} ${short(l.y)}</text>`;
+  });
+  s += `<text x="${P}" y="${H - 3}" font-size="9" fill="#8d8d95">${esc(ch.t[0])}</text>`;
+  s += `<text x="${W - R}" y="${H - 3}" font-size="9" fill="#8d8d95" text-anchor="end">${esc(ch.t[n - 1])}</text></svg>`;
+  const leg = Object.keys(ch.lines || {}).map(k => `<span style="color:${colors[k] || "#888"}">━ ${k}</span>`).join("");
+  return `<div class="chartbox">${s}<div class="legend">${leg}</div></div>`;
+}
+const planLevels = p => p && p.side !== "WAIT" ? [
+  {y: p.entry, n: "Entry", c: "#e8b923"}, {y: p.stop, n: "SL", c: "#f87171"},
+  {y: p.t1, n: "T1", c: "#22c55e"}, {y: p.t2, n: "T2", c: "#22c55e"}] : [];
+
+function spark(v) {
+  v = v.filter(x => x != null);
+  if (v.length < 2) return "";
+  const min = Math.min(...v), max = Math.max(...v);
   const pts = v.map((x, i) => `${(i / (v.length - 1) * 300).toFixed(1)},${(52 - (x - min) / (max - min || 1) * 48).toFixed(1)}`).join(" ");
   const col = v[v.length - 1] >= v[0] ? "#22c55e" : "#f87171";
-  return `<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="Last 90 days price"><polyline fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke" points="${pts}"/></svg>`;
+  return `<svg viewBox="0 0 300 56" preserveAspectRatio="none" style="width:100%;height:80px;display:block" role="img" aria-label="5 year price"><polyline fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke" points="${pts}"/></svg>`;
 }
 
-async function run(sym) {
-  drop.hidden = true; q.value = sym.toUpperCase();
-  out.innerHTML = `<p class="load">Analyzing ${esc(sym.toUpperCase())}…</p>`;
-  try {
-    const res = await fetch(`${API}/api/analyze?symbol=${encodeURIComponent(sym)}`);
-    const d = await res.json();
-    if (!res.ok) throw new Error(d.detail || "Something went wrong.");
-    const cls = d.overall.includes("BULL") ? "bull" : d.overall.includes("BEAR") ? "bear" : "neu";
-    const up = d.change >= 0;
-    out.innerHTML = `
-      <section class="hero ${cls}">
-        <h2 class="verdict" style="margin:0">${d.overall.replace(" ", "<br>")}</h2>
-        <div class="chip">${esc(d.symbol)} · ${d.exchange}</div>
-        <p class="trend">${d.trend} · as of ${d.asof}</p>
-        <div class="price"><strong>₹${fmt(d.price)}</strong><span class="${up ? "up" : "dn"}">${up ? "+" : ""}${fmt(d.change)} (${up ? "+" : ""}${d.change_pct}%)</span></div>
-        <div class="counts">
-          <div class="count bullish">${d.counts.bullish}<small>Bullish</small></div>
-          <div class="count neutral">${d.counts.neutral}<small>Neutral</small></div>
-          <div class="count bearish">${d.counts.bearish}<small>Bearish</small></div>
-        </div>
-        ${spark(d.closes)}
-      </section>
-      <h2>${esc(d.name)}: key levels</h2>
-      <div class="row"><span>Support (20d low)</span><span class="v">₹${fmt(d.levels.support_20d)}</span></div>
-      <div class="row"><span>Resistance (20d high)</span><span class="v">₹${fmt(d.levels.resistance_20d)}</span></div>
-      <div class="row"><span>52-week low</span><span class="v">₹${fmt(d.levels.low_52w)}</span></div>
-      <div class="row"><span>52-week high</span><span class="v">₹${fmt(d.levels.high_52w)}</span></div>
-      <h2>Indicators</h2>
-      ${d.signals.map(s => `<div class="row"><span>${esc(s.name)}<br><span class="v">${esc(s.value)}</span></span><span class="tag ${s.verdict}">${s.verdict[0].toUpperCase() + s.verdict.slice(1)}</span></div>`).join("")}`;
-  } catch (e) {
-    out.innerHTML = `<div class="err">${esc(e.message)}</div>`;
-  }
+const rows = list => list.map(s => `<div class="row"><span>${esc(s.name)}${s.value != null ? `<br><span class="v">${esc(s.value)}</span>` : ""}</span><span class="tag ${s.verdict}">${cap(s.verdict)}</span></div>`).join("");
+const counts = c => `<div class="counts"><div class="count bullish">${c.bullish}<small>Bullish</small></div><div class="count neutral">${c.neutral}<small>Neutral</small></div><div class="count bearish">${c.bearish}<small>Bearish</small></div></div>`;
+
+/* ---------- trade plan + position sizing ---------- */
+function planCard(p, title) {
+  if (!p || p.side === "WAIT") return `<div class="card"><h3>${title}</h3><p class="mute" style="margin:0">No clear trend right now, so no trade plan. Waiting is also a position.</p></div>`;
+  const long = p.side === "LONG";
+  return `<div class="card"><h3>${title}: ${long ? "LONG (buy)" : "SHORT (sell)"}</h3>
+    ${long ? "" : `<p class="mute" style="margin:0 0 10px">Short side is only for intraday or F&amp;O. In delivery, treat it as "avoid".</p>`}
+    <div class="plan">
+      <div><small>Entry</small><b>₹${fmt(p.entry)}</b></div>
+      <div><small>Stop-loss</small><b style="color:var(--bear)">₹${fmt(p.stop)}</b></div>
+      <div><small>Target 1 (1:2)</small><b style="color:var(--bull)">₹${fmt(p.t1)}</b></div>
+      <div><small>Target 2 (1:3)</small><b style="color:var(--bull)">₹${fmt(p.t2)}</b></div>
+    </div>
+    <p class="mute" style="margin:10px 0 0">Risk per share ₹${fmt(p.risk)} (based on ATR ₹${fmt(p.atr)})</p>
+    <h3 style="margin-top:16px">How many shares?</h3>
+    <div class="in">
+      <div><label for="cap">Your capital (₹)</label><input id="cap" type="number" inputmode="decimal" min="0"></div>
+      <div><label for="rk">Risk per trade (%)</label><input id="rk" type="number" inputmode="decimal" min="0" step="0.1"></div>
+    </div>
+    <div id="sz" class="mute" style="margin-top:12px"></div></div>`;
 }
+function bindSizer(p) {
+  const c = $("cap"), r = $("rk");
+  if (!c || !p || p.side === "WAIT") return;
+  let sc = "100000", sr = "1";
+  try { sc = localStorage.getItem("tv_cap") || sc; sr = localStorage.getItem("tv_rk") || sr; } catch {}
+  c.value = sc; r.value = sr;
+  const calc = () => {
+    const capv = parseFloat(c.value), rk = parseFloat(r.value);
+    try { localStorage.setItem("tv_cap", c.value); localStorage.setItem("tv_rk", r.value); } catch {}
+    if (!(capv > 0) || !(rk > 0)) { $("sz").textContent = "Enter capital and risk %."; return; }
+    const riskAmt = capv * rk / 100;
+    const qty = Math.min(Math.floor(riskAmt / p.risk), Math.floor(capv / p.entry));
+    if (qty < 1) { $("sz").textContent = "Capital or risk is too small for even 1 share."; return; }
+    const loss = qty * p.risk;
+    $("sz").innerHTML = `<div class="big">${qty} shares</div>Invest ≈ ₹${fmt(qty * p.entry)} · Max loss at stop ≈ <span class="dn">₹${fmt(loss)}</span><br>Profit at T1 ≈ <span class="up">₹${fmt(loss * 2)}</span> · at T2 ≈ <span class="up">₹${fmt(loss * 3)}</span>`;
+  };
+  c.oninput = r.oninput = calc; calc();
+}
+
+/* ---------- shell + tabs ---------- */
+async function run(sym) {
+  drop.hidden = true; sym = sym.trim().toUpperCase(); q.value = sym;
+  out.innerHTML = `<p class="load">Analyzing ${esc(sym)}…</p>`;
+  try {
+    const d = await getJSON(`/api/analyze?symbol=${encodeURIComponent(sym)}`);
+    cur = {sym: d.symbol, daily: d, intra: null, fund: null};
+    shell(); showTab("swing");
+  } catch (e) { out.innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+}
+function shell() {
+  const d = cur.daily, up = d.change >= 0, saved = W.get().includes(cur.sym);
+  out.innerHTML = `
+    <div class="top"><div><h2>${esc(d.name)}</h2><div class="sub">${esc(d.symbol)} · ${d.exchange} · as of ${esc(d.asof)}</div></div>
+      <button class="star" id="star" aria-pressed="${saved}">${saved ? "★ Saved" : "☆ Watch"}</button></div>
+    <div class="price"><strong>₹${fmt(d.price)}</strong><span class="${up ? "up" : "dn"}">${up ? "+" : ""}${fmt(d.change)} (${up ? "+" : ""}${d.change_pct}%)</span></div>
+    <div class="tabs" role="tablist">
+      <button role="tab" data-t="swing">Swing</button><button role="tab" data-t="long">Long-term</button><button role="tab" data-t="intra">Intraday</button></div>
+    <div id="tab"></div>`;
+  $("star").onclick = () => {
+    let w = W.get();
+    w = w.includes(cur.sym) ? w.filter(x => x !== cur.sym) : [cur.sym, ...w].slice(0, 20);
+    W.set(w); renderWatch();
+    const on = w.includes(cur.sym); $("star").setAttribute("aria-pressed", on); $("star").textContent = on ? "★ Saved" : "☆ Watch";
+  };
+  document.querySelector(".tabs").onclick = e => { const b = e.target.closest("button"); if (b) showTab(b.dataset.t); };
+}
+async function showTab(t) {
+  document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.t === t));
+  const box = $("tab"), sym = cur.sym;
+  if (t === "swing") return renderSwing(box);
+  const key = t === "long" ? "fund" : "intra";
+  if (!cur[key]) {
+    box.innerHTML = `<p class="load">Loading…</p>`;
+    try { const d = await getJSON(`/api/${t === "long" ? "fundamentals" : "intraday"}?symbol=${encodeURIComponent(sym)}`); if (!cur || cur.sym !== sym) return; cur[key] = d; }
+    catch (e) { if (cur && cur.sym === sym) box.innerHTML = `<div class="err">${esc(e.message)}</div>`; return; }
+  }
+  if (!cur || cur.sym !== sym) return;
+  t === "long" ? renderLong(box) : renderIntra(box);
+}
+
+/* ---------- Swing tab ---------- */
+function renderSwing(box) {
+  const d = cur.daily, p = d.plan, wk = d.weekly;
+  box.innerHTML = `
+    <section class="hero ${acls(d.action) === "neu" ? vcls(d.overall) : acls(d.action)}">
+      <h2 class="verdict" style="margin:0">${esc(d.action)}</h2>
+      <div class="chip">${esc(d.overall)}</div>
+      <p class="trend">${esc(d.trend)}</p>
+      <ul class="why">${d.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+      ${counts(d.counts)}
+    </section>
+    ${chart(d.chart, planLevels(p))}
+    ${planCard(p, "Swing trade plan")}
+    ${wk ? `<div class="card"><h3>Weekly trend: ${esc(wk.trend)}</h3>${rows(wk.checks)}</div>` : ""}
+    <div class="card"><h3>Candle pattern (latest)</h3>${rows(d.patterns)}</div>
+    <h2 class="sec">Key levels</h2>
+    <div class="row"><span>Support (20d low)</span><span class="v">₹${fmt(d.levels.support_20d)}</span></div>
+    <div class="row"><span>Resistance (20d high)</span><span class="v">₹${fmt(d.levels.resistance_20d)}</span></div>
+    <div class="row"><span>52-week low</span><span class="v">₹${fmt(d.levels.low_52w)}</span></div>
+    <div class="row"><span>52-week high</span><span class="v">₹${fmt(d.levels.high_52w)}</span></div>
+    <h2 class="sec">Indicators</h2>${rows(d.signals)}`;
+  bindSizer(p);
+}
+
+/* ---------- Long-term tab ---------- */
+function renderLong(box) {
+  const f = cur.fund, r = f.returns, pr = f.profile, x = f.ratios;
+  const beat = r["1y"] != null && r.nifty_1y != null ? (r["1y"] > r.nifty_1y ? "Beating Nifty" : "Lagging Nifty") : "";
+  const ratio = (n, v) => `<div class="row"><span>${n}</span><span class="v">${v == null ? "–" : v}</span></div>`;
+  box.innerHTML = `
+    <section class="hero ${acls(f.action)}">
+      <h2 class="verdict" style="margin:0">${esc(f.action)}</h2>
+      <div class="chip">${esc(f.verdict)} · ${f.passed}/${f.total} checks passed</div>
+      <p class="trend">${esc([pr.sector, pr.industry].filter(Boolean).join(" · ")) || "Sector not available"}${pr.market_cap_cr ? ` · Mcap ₹${pr.market_cap_cr.toLocaleString("en-IN")} Cr` : ""}</p>
+    </section>
+    <div class="card"><h3>Returns ${beat ? `· ${beat}` : ""}</h3>
+      <div class="plan">
+        <div><small>1 year</small><b class="${(r["1y"] || 0) >= 0 ? "up" : "dn"}">${pct(r["1y"])}</b></div>
+        <div><small>Nifty 50 (1 year)</small><b>${pct(r.nifty_1y)}</b></div>
+        <div><small>3 years</small><b class="${(r["3y"] || 0) >= 0 ? "up" : "dn"}">${pct(r["3y"])}</b></div>
+        <div><small>5 years</small><b class="${(r["5y"] || 0) >= 0 ? "up" : "dn"}">${pct(r["5y"])}</b></div>
+      </div>
+      <p class="mute" style="margin:10px 0 0">Now ${pct(f.from_52w_high_pct)} from the 52-week high</p>
+      ${spark(f.closes)}
+    </div>
+    <div class="card"><h3>Quality checklist</h3>
+      ${f.checks.map(c => `<div class="row"><span>${esc(c.name)}<br><span class="v">${esc(c.value ?? "Data not available")} · ${esc(c.rule)}</span></span><span class="tag ${c.status}">${c.status === "pass" ? "Pass" : c.status === "fail" ? "Fail" : "N/A"}</span></div>`).join("")}</div>
+    <h2 class="sec">Key ratios</h2>
+    ${ratio("P/E", x.pe)}${ratio("Price / Book", x.pb)}${ratio("ROE", x.roe_pct != null ? x.roe_pct + "%" : null)}
+    ${ratio("Debt / Equity", x.debt_equity)}${ratio("Profit margin", x.profit_margin_pct != null ? x.profit_margin_pct + "%" : null)}
+    ${ratio("Dividend yield", x.dividend_yield_pct != null ? x.dividend_yield_pct + "%" : null)}
+    <p class="mute" style="margin-top:14px">Fundamentals come from Yahoo Finance and can be missing or outdated. Verify on the company's results before investing. Rules here are simple screens, not a valuation.</p>`;
+}
+
+/* ---------- Intraday tab ---------- */
+function renderIntra(box) {
+  const d = cur.intra, p = d.plan, lv = d.levels, pv = d.pivots;
+  box.innerHTML = `
+    <section class="hero ${vcls(d.overall)}">
+      <h2 class="verdict" style="margin:0">${esc(d.overall)}</h2>
+      <div class="chip">15-minute chart</div>
+      <p class="trend">Last candle ${esc(d.asof)} · ₹${fmt(d.price)}</p>
+      ${counts(d.counts)}
+    </section>
+    ${chart(d.chart, planLevels(p))}
+    ${planCard(p, "Intraday plan")}
+    <div class="card"><h3>Today's levels</h3>
+      <div class="row"><span>Day high / low</span><span class="v">₹${fmt(lv.day_high)} / ₹${fmt(lv.day_low)}</span></div>
+      <div class="row"><span>First 15-min range</span><span class="v">₹${fmt(lv.or_low)} - ₹${fmt(lv.or_high)}</span></div>
+      ${pv ? `<div class="row"><span>Pivot</span><span class="v">₹${fmt(pv.pivot)}</span></div>
+      <div class="row"><span>Resistance R1 / R2</span><span class="v">₹${fmt(pv.r1)} / ₹${fmt(pv.r2)}</span></div>
+      <div class="row"><span>Support S1 / S2</span><span class="v">₹${fmt(pv.s1)} / ₹${fmt(pv.s2)}</span></div>` : ""}</div>
+    <h2 class="sec">Indicators</h2>${rows(d.signals)}
+    <button class="btn" id="rf">Refresh</button>
+    <p class="mute" style="margin-top:10px">Yahoo's 15-minute data is delayed, so it is not suitable for scalping. Always use a stop-loss.</p>`;
+  bindSizer(p);
+  $("rf").onclick = () => { cur.intra = null; showTab("intra"); };
+}
+
+renderWatch();
 </script>
 </body>
 </html>
